@@ -1,0 +1,413 @@
+          <html>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script>
+            function check() {
+              if ( document.forms[0].elements[0].checked == true && document.forms[0].elements[1].checked == true && document.forms[0].elements[2].checked == true ) {
+                if ( ! $('.wrapper').hasClass('throb')) {
+                    // Do things on Nav Close
+                    $('.wrapper').addClass('throb');
+                } 
+              } else {
+                if ($('.wrapper').hasClass('throb')) {
+                    // Do things on Nav Close
+                    $('.wrapper').removeClass('throb');
+                }
+              }
+             }
+          </script>
+          <style>
+          body {
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+
+          p{
+            font-size: 10px;
+            font-family: "Times New Roman", Times, serif;
+            color: black;
+            text-align: left;
+          }
+
+          body {
+            width: 100%;
+            overflow-x: hidden;
+            height: 100%;
+            display: flex;
+            margin: auto;
+            background-image: url(https://assets.codepen.io/4927073/Group2.png), url(https://assets.codepen.io/4927073/Background6.png);
+            background-image: url(https://assets.codepen.io/4927073/Group2.png), linear-gradient(33deg, #edf2f7, #edf2f7);
+            background-image: url(https://assets.codepen.io/4927073/Group2.png),  linear-gradient(33deg, #2c303a, #2c303a);
+            background-size: cover;
+            background-position: 50% 50%;
+          }
+
+          .container {
+              height: 100%;
+              width: 100%;/* Set the height to whatever you prefer */
+              overflow-y: scroll; /* Enable vertical scrolling */
+              border: 1px solid #ccc; /* Optional: Add a border for visual clarity */
+            }
+
+          .envelope {
+            content: url(https://assets.codepen.io/4927073/Envelope3.png);
+            width: 430px;
+            position: relative;
+            left: 20%;
+            top: 70%;
+            filter: drop-shadow(1.5px 0.75px 1.75px #4d4d4d);
+          }
+
+          .card {
+            position: relative;
+            left: 10%;
+            top: 1%;
+            width: 262px;
+            height: 400px;
+            margin: auto;
+            box-shadow: inset 5px 0px 15px 0px rgba(0, 0, 0, 0.1),
+              3px 0px 3px -2px rgba(0, 0, 0, 0.3);
+            background-color: #fffffa;
+                transform: scale(1.05);
+            left: 12px;
+          }
+
+          .front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: -10px 0px 0px -10px;
+            margin: auto;
+            border: 1px solid #e0e0db;
+            backface-visibility: hidden;
+            background-color: #e8e6e3;
+            background-size: contain;
+            transform-style: preserve-3d;
+            transform-origin: 0% 50%;
+            transform: perspective(800px) rotateY(0deg);
+            transition: all 1s ease-in-out;
+            filter: saturate(1.125) brightness(1.0125);
+          }
+
+          .card:hover .front {
+            transform: perspective(800px) rotateY(-170deg);
+            background-color: rgb(205, 205, 205);
+          }
+
+          .card:hover .back {
+            transform: perspective(800px) rotateY(-170deg);
+            box-shadow: 7px 0px 2px 0px rgba(0, 0, 0, 0.3),
+              inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+            background-color: #fffffa;
+          }
+
+          .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: -10px 0px 0px -10px;
+            margin: auto;
+            backface-visibility: visible;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.25));
+            box-shadow: inset 5px 0px 15px 0px rgba(0, 0, 0, 0.1),
+              3px 0px 3px 1px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            transform-origin: 0% 50%;
+            transform: perspective(800px) rotateY(0deg);
+            transition: all 1s ease-in-out;
+            background-color: #fff;
+          }
+          .text-container {
+            width: 80%;
+            height: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Roboto;
+            color: #929292;
+          }
+
+          .f-box {
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            background-color: transparent;
+            box-shadow: 0 2px rgba(0, 0, 0, 0.1);
+            text-align: center;
+          }
+
+          .f-box img {
+            margin-top: 0px;
+            height: 100%;
+            width: auto;
+          }
+
+
+
+
+          @media (max-width: 675px) {
+            .envelope {
+              width: 380px;
+          }
+
+            .card {
+              height: 330px;
+              width: 230px;
+          }
+          }
+
+            @import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+            @-webkit-keyframes throb{
+              0%{
+                -webkit-transform: scale(1);
+              }
+              35%{
+                -webkit-transform: scale(1.2);
+              }
+              85%{
+                -webkit-transform: scale(1);
+              }   
+            }
+
+            html {
+              display: table;
+              width: 100%;
+              height: 100vmin;
+              table-layout: fixed;
+            }
+
+            body {
+              margin: 0;
+              padding: 0;
+              height: 100%;
+              width: 100%; 
+              display: table-cell;
+              vertical-align: middle;
+              font-family: 'Shadows Into Light';
+              color: #111;
+            }
+
+            .wrapper {
+              width: 90vmin;
+              height: 90vmin;
+              position: relative;
+              margin: 5vmin auto;
+            }
+
+            div.throb {
+              -webkit-animation: throb 0.5s infinite;
+              animation: throb 0.5s infinite;
+              animation-delay: 0.8s;
+
+            }
+            input[type="checkbox"] {
+              display: none;
+            }
+
+            input[type="checkbox"] + label {
+              width: 10vmin; height: 10vmin;
+              line-height: 10vmin;
+              display: inline-block;
+              position: absolute;
+              font-size: 10vmin;
+              text-align: center;
+              transition: all 1s ease;
+            }
+
+            label {
+              text-shadow: 3vmin 3vmin 10vmin rgba(0,0,0,0.5);
+            }
+              label:hover {
+                color: #c32a2a;
+                cursor: pointer;
+              }
+
+            #ck1 + label,
+            #ck2 + label {
+              border-radius: 50%;
+              top: 0;
+            }
+
+            #ck1:checked + label,
+            #ck2:checked + label,
+            #ck3:checked + label {
+              background: #c32a2a;
+              font-size: 0;
+              transition: all 1s ease;
+            }
+
+            #ck1 + label {
+              left: 0;
+            }
+
+            #ck2 + label {
+              right: 10vmin;
+            }
+
+            #ck1:checked + label,
+            #ck2:checked + label {
+              width: 54vmin; height: 54vmin;
+              border-radius: 50%;
+              line-height: 54vmin;
+            }
+
+            #ck2:checked + label {
+              right: 0;
+            }
+
+            #ck3 + label {
+              bottom: 5vmin; left: 50%;
+              margin: 0 -9vmin;
+            }
+
+            #ck3:checked + label {
+              width: 49.5vmin; height: 49.5vmin;
+              bottom: 17.28vmin; left: 29.16vmin;
+              transform: rotate(45deg);
+              line-height: 4.86vmin;
+            }
+
+            span {
+              display: inline-block;
+              text-align: left;
+              position: absolute;
+              bottom: 0vmin; left: 0vmin;
+              margin-bottom: -3vmin;
+              font-size: 3vmin;
+              color: #999;
+            }
+
+            form{
+              size: 10px;
+            }
+
+            h1{
+              font-family: 'Amatic SC', cursive;;
+              color: white;
+            }
+
+            h2{
+              font-family: 'Amatic SC', cursive;;
+              color: white;
+            }
+
+            svg {
+              overflow: visible;
+            }
+            svg path#line {
+              fill: none;
+              stroke: #e00000;
+              stroke-width: 2;
+              stroke-linecap: butt;
+              stroke-linejoin: round;
+              stroke-miterlimit: 4;
+              stroke-dasharray:none;
+              stroke-opacity: 1;
+              stroke-dasharray: 1;
+              stroke-dashoffset: 1;
+              animation: dash 4s linear infinite;
+            }
+            svg path#heart {
+              transform-origin: 50% 50%;
+              animation: blink 4s linear infinite;
+            }
+
+            @keyframes dash {
+              0% {
+                stroke-dashoffset: 1;
+              }
+              80% {
+                stroke-dashoffset: 0;
+              }
+              100% {
+                stroke-dashoffset: 0;
+              }
+            }
+
+            @keyframes blink {
+              0% {
+                opacity: 0;
+                transform: scale(0);
+              }
+              60% {
+                opacity: 0;
+                transform: scale(0);
+              }
+              70% {
+                opacity: 1;
+                transform: scale(1.2);
+              }
+              75% {
+                opacity: 1;
+                transform: scale(1.0);
+              }
+              80% {
+                opacity: 1;
+                transform: scale(1.2);
+              }
+              85% {
+                opacity: 1;
+                transform: scale(1.0);
+              }
+              100% {
+                opacity: 0;
+                transform: scale(1.0);
+              }
+            }
+            
+            </style>
+            <div class="container"> 
+          <head>
+          <body><br><br><br><br>
+          <center><h1>Happy Valentine's Day Ishh<3</h1>
+            <img src="https://pngimg.com/uploads/white_roses/white_roses_PNG2799.png" alt="" width="300" height="200"><h2>Flower for you :)<br>Thora jaldi jaldi me banayi hai toh itni achi nahi hogi site but I hope you like it ;)</h2><br>
+          <img src="https://media1.tenor.com/images/0ae1fd3712a49e4718a5d19d6203c720/tenor.gif?itemid=17852939" alt="" width="500" height="500"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <h1>Real letter nahi to online sahi <3</h1></center>
+          <div class="envelope">
+          </div>
+          <div class="card">
+            <div class="back"></div>
+            <div class="front">
+              <div class="f-box">
+                <img src="https://assets.codepen.io/4927073/ValCard.png" alt="">
+              </div>
+            </div>
+
+            <div class="text-container">
+
+              <p><br><br><br><br><br><br>
+                Happy Valentine's Day Ishh!!!<br><br>
+                Lil Surpise for you hehe <3<br>So, Valentine’s Day is here, and I thought I would tell you how much precious you are to me. Like seriously, tu yaar bahut cutee aur cool hai dono hai XD, abhi toh school nahi aa pa rahe otherwise me ek real letter dedeta but i hope you like this one tooo<3 and i misss youuu soo muchh hoping jaldi school khule aur ham baate kar paye and I’m sachme beyond lucky to have you in my life.<br><br>
+          Tere baare me to soch kar hi ab smile ajati hai (tu itni cute kese hai 😭) yk jab bhi mood off hota hai tere se baat karleta you really lift my mood up idk tere se baat karte wakt it's just like everything's fine around me hehe.<br><br>
+                  I love just how we both chill and enjoy whether its online or offline bas maze ate hai aur tu to hai hi itni pyaari hamesha khush kar deti meko XD
+                  <br><br>well ye card size thora chota hai to jyada nahi likhunga but end me it's just you whom I wanna be with and I hope future saath me acha guzaree byeee
+                  I love youuu <3<br>~saaim
+              </p>
+            </div>
+          </div>
+          <br><br><br><br><br><br>
+                    <form>
+                    <div class="wrapper">
+                      <input type="checkbox" id="ck1" onClick="check()"/>
+                      <label for="ck1">I</label>
+                      <input type="checkbox" id="ck2" onClick="check()"/>
+                      <label for="ck2">love</label>
+                      <input type="checkbox" id="ck3" onClick="check()"/>
+                      <label for="ck3">you</label>
+                      <span>(Click on words)</span>
+                    </div>
+                    </form>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" id="svg5" version="1.1" viewBox="0 0 502.98 108.61">
+                      <path id="heart" d="M213.35 29.43c19.41-15.19 33.68 10.86 37.73 18.82-.28-13.61 11.64-40.98 25.94-34.01 32.3 15.74-15.88 83.8-26.4 81.76-13.24-9-51.35-53.3-37.27-66.57Z" style="fill:#ff9999;stroke:#ff9999;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+                      <path  pathLength="1" id="line" d="M5.32 78.13c.96-.01 5-8.5 5.54-8.54.58-.05 6.1 8.51 7.1 8.51 3.66 0 9.29.06 10.71.05 2.53-.01 4.82-72.88 4.82-72.88l4.76 97.28 3.97-24.45 20.45-.22C64 77.86 77.1 63.66 78.36 63.8c1.31.15 6.68 14.08 7.94 14.07 2.3-.03 33.32.04 35.76.02.96 0 5-8.5 5.53-8.53.59-.05 6.1 8.51 7.1 8.5 3.66 0 9.3.07 10.72.06 2.53-.02 4.81-72.89 4.81-72.89l4.77 97.28 3.97-24.44s83.34-3.33 74.69 7.67c-8.65 11-45.3-42.94-31.65-53.58 25.6-19.96 49.96 36.94 40.26 36.5-12.2-.53 1.8-62.32 23.41-51.7 32.24 15.86-17.56 84.92-26.4 81.77-5.73-2.05-.68-21.68 31.4-26.58 26.65-6.42 29.5 2.35 52.62 7.11 2.53-.02 4.82-72.89 4.82-72.89l4.76 97.28 3.97-24.44 20.45-.22c1.31-.02 14.41-14.22 15.68-14.07 1.32.15 6.7 14.08 7.95 14.07 2.29-.03 33.32.04 35.76.02.95 0 5-8.5 5.53-8.54.58-.04 6.1 8.52 7.1 8.52 3.66 0 9.3.06 10.72.05 2.53-.02 4.81-72.89 4.81-72.89l4.77 97.28 3.97-24.44 20.45-.23c1.31-.01 14.4-14.22 15.68-14.07 1.32.16 6.69 14.09 7.94 14.07" />
+                    </svg>
+          </body>
+            </head>
+                    </div>
+            </html>
